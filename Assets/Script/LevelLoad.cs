@@ -2,78 +2,56 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+
 
 public class LevelLoad : MonoBehaviour
 {
-    //[SerializeField] int timetoWait = 4;
-    public Slider slider;
-    public Text progrssText;
-    int currentSceneIndex;
+    
     // Start is called before the first frame update
     void Start()
     {
-        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        if(currentSceneIndex == 0)
-        {
-            StartCoroutine(LoadAsynchronusly(currentSceneIndex));
-        }
-    }
-
-    IEnumerator LoadAsynchronusly(int sceneIndex)
-    {
-        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex+1);
-        while(!operation.isDone)
-        {
-            float progress = Mathf.Clamp01(operation.progress/0.9f);
-            int percentage = (int)(progress*100);
-            //Debug.Log(progress);
-            slider.value = progress;
-            progrssText.text = "Loading " +percentage+ "%";
-            yield return null;
-        }
         
-        //LoadNextScene();
+       
     }
 
-     void LoadNextScene(int nextLevel)
+ 
+
+     public void LoadNextScene(string sceneName)
     {
-        SceneManager.LoadScene(nextLevel);
+        SceneManager.LoadScene(sceneName);
     }
 
     public void playButton()
     {
         
-        LoadNextScene(2);
+        LoadNextScene("02 Play");
     }
 
     public void settingsButton()
     {
         
-        LoadNextScene(3);
+        LoadNextScene("01b Settings");
     }
 
     public void instructionButton()
     {
         
-        LoadNextScene(4);
+        LoadNextScene("01c Instruction");
     }
     public void aboutUsButton()
     {
         
-        LoadNextScene(5);
+        LoadNextScene("01d About Us");
     }
 
+    public void HomeButton()
+    {
+        LoadNextScene("01a Start");
+    }
     public void quitButton()
     {
         
          Application.Quit();;
     }
 
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
