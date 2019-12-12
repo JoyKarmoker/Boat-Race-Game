@@ -28,8 +28,12 @@ public class MusicManager : MonoBehaviour
     // Update is called once per frame
     void OnLevelWasLoaded(int level)
     {
+        if(level != 1)
+        {
+            levelOnewasloaded = true;
+        }
         Debug.Log("Level in music Manager "+level);
-        if((level==1 && levelOnewasloaded == false) || level == 2){
+        if((level==1 && levelOnewasloaded == false) || level == 4){
             AudioClip thisLevelMusic = levelMusicChangeArray[level];
             //Debug.Log("Playing music " +thisLevelMusic);
             //audioClip = thisLevelMusic;

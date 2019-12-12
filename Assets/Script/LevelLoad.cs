@@ -33,20 +33,27 @@ public class LevelLoad : MonoBehaviour
         LoadNextScene("01b Settings");
     }
 
-    public void instructionButton()
+
+    public void creditsButton()
     {
         
-        LoadNextScene("01c Instruction");
-    }
-    public void aboutUsButton()
-    {
-        
-        LoadNextScene("01d About Us");
+        LoadNextScene("01c Credits");
     }
 
     public void HomeButton()
     {
         LoadNextScene("01a Start");
+    }
+
+
+    public void winButton()
+    {
+        LoadNextScene("03a Win");
+    }
+
+    public void LosseButton()
+    {
+        LoadNextScene ("03b Losse");
     }
     public void quitButton()
     {
