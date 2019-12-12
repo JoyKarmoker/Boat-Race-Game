@@ -56,7 +56,10 @@
      <Compile Include="Assets\Script\FadeIn.cs" />
      <Compile Include="Assets\Script\LevelLoad.cs" />
      <Compile Include="Assets\Script\MusicManager.cs" />
+     <Compile Include="Assets\Script\OptionsController.cs" />
+     <Compile Include="Assets\Script\PlayerPrefsManager.cs" />
      <Compile Include="Assets\Script\SliderControl.cs" />
+     <Compile Include="Assets\Script\Test.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
