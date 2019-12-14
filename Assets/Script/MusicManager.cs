@@ -18,31 +18,43 @@ public class MusicManager : MonoBehaviour
             Destroy(this.gameObject);
         }
         DontDestroyOnLoad(gameObject);
-       // Debug.Log("Don't Destroy on Load "+name);
+        audioSource = GetComponent<AudioSource>();
+        audioSource.volume = PlayerPrefsManager.GetMasterBackgroudMusic();
+        // Debug.Log("Don't Destroy on Load "+name);
     }
 
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        audioSource.volume = PlayerPrefsManager.GetMasterBackgroudMusic();
     }
     // Update is called once per frame
     void OnLevelWasLoaded(int level)
     {
         if(level != 1)
         {
+            audioSource.volume = PlayerPrefsManager.GetMasterBackgroudMusic();
             levelOnewasloaded = true;
         }
-        Debug.Log("Level in music Manager "+level);
+        //Debug.Log("Level in music Manager "+level);
         if((level==1 && levelOnewasloaded == false) || level == 4){
             AudioClip thisLevelMusic = levelMusicChangeArray[level];
+            audioSource.volume = PlayerPrefsManager.GetMasterBackgroudMusic();
             //Debug.Log("Playing music " +thisLevelMusic);
             //audioClip = thisLevelMusic;
-            if(thisLevelMusic) // If there is some music
+            if (thisLevelMusic) // If there is some music
             {
                 audioSource.clip = thisLevelMusic;
                 audioSource.loop = true;
                 audioSource.Play();
+                audioSource.volume = PlayerPrefsManager.GetMasterBackgroudMusic();
             }
+        }
+
+        if(level == 1)
+        {
+            //audioSource = GetComponent<AudioSource>();
+            audioSource.volume = PlayerPrefsManager.GetMasterBackgroudMusic();
         }
 
     }
